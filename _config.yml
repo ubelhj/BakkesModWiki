@@ -22,8 +22,9 @@ title: BakkesMod Programming Wiki
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   A Wiki designed to help people learn BakkesMod Programming
-baseurl: "/BakkesModWiki" # the subpath of your site, e.g. /blog
-url: "https://ubelhj.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+domain: ubelhj.github.io
+baseurl: /BakkesModWiki # the subpath of your site, e.g. /blog
+url: https://ubelhj.github.io # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
