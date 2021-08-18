@@ -1,0 +1,21 @@
+entries:
+- title: Docs Sidebar
+  product: BakkesMod API Docs
+  folders:
+
+  - title: GameObject
+    output: web, pdf
+    folderitems:
+
+    - title: CarWrapper
+      url: /Wrappers_GameObject_CarWrapper.html
+      output: web, pdf
+
+      subfolders:
+      - title: CarComponent
+        output: web
+        subfolderitems:
+
+        - title: AirControlComponentWrapper
+          url: /Wrappers_GameObject_CarComponent_AirControlComponentWrapper.html
+          output: web, pdf
