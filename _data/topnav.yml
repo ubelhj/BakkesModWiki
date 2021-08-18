@@ -3,6 +3,10 @@
 topnav:
 - title: Topnav
   items:
+    - title: Download BakkesMod
+      external_url: https://bakkesmod.com/
+    - title: Find Plugins
+      external_url: https://bakkesplugins.com/
     - title: GitHub
       external_url: https://github.com/ubelhj/BakkesModWiki
     - title: Discord

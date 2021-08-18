@@ -1,9 +1,8 @@
 # This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
 
 entries:
-- title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
+- title: Main Sidebar
+  product: BakkesMod Programming Wiki
   folders:
 
   - title:

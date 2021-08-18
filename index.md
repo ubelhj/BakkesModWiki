@@ -9,5 +9,7 @@ permalink: index.html
 This site will hopefully help you learn how to make plugins, and document some of the SDK.  
 I can't promise too much, but I want this to be a helpful resource for people.
 
+If you want to make your first plugin, check out [Setting Up](getting_started.html)
+
 If you're ever confused, need help, or want to talk with experienced people, feel free to join the [Programming Discord](https://discord.gg/HMptXSzCvU)  
 Please only join for programming questions or discussion, we cannot help you troubleshoot any basic BakkesMod issues
