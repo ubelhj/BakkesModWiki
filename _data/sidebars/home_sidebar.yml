@@ -28,8 +28,20 @@ entries:
       output: web, pdf
       type: homepage
 
-    - title: Getting Started
+    - title: Setting Up
       url: /getting_started.html
+      output: web, pdf
+
+    - title: Starting a Plugin
+      url: /starting_a_plugin.html
+      output: web, pdf
+
+    - title: Plugin Variables
+      url: /plugin_variables.html
+      output: web, pdf
+
+    - title: Plugin Interface
+      url: /plugin_interface.html
       output: web, pdf
 
   - title: Troubleshooting

@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Setup your installs
 tags: [getting_started]
 permalink: getting_started.html
 folder: plugintutorial
@@ -16,13 +16,4 @@ Note these instructions are designed for **Windows 10 (and presumably 11)**. Roc
 4. Download the plugin template as instructed in it's README. This makes things much easier to work with and automatically handles include paths for your plugin. Martinn is a wizard 
 [https://github.com/Martinii89/BakkesmodPluginTemplate](https://github.com/Martinii89/BakkesmodPluginTemplate)
 5. Open Visual Studio and create a new project. You should see BakkesModPlugin as a template type. 
-6. Start coding! When you build, your plugin will automatically be moved into your plugins folder, and it will load in Rocket League. If you're having trouble understanding how to start the code, try looking at #starter-plugin-tutorial and #code-snippets-index for some examples on how Bakkesmod SDK is used
-7. RULES THAT SHOULD ALWAYS BE FOLLOWED WHEN PROGRAMMING FOR BAKKESMOD 
-    * Null check everything: if (wrapperImUsing.IsNull()) { return; }
-    *  Do not store wrappers. Retrieve them when you need them (exception is the gameWrapper and cvarManager which is already handled by 
-            the base plugin class!)
-8. Still having trouble? Use #programming-help and give as many details you can about any issues you encounter
-    
-    It's much easier for others to help if you give a small reproducible code sample. 
-
-    This will a) help you diagnose the problem easier when making the reproducible sample and 2) make other devs lives a lot easier
+6. Start coding! When you build, your plugin will automatically be moved into your plugins folder, and it will load in Rocket League. If you're having trouble understanding how to start the code, try looking at [Starting A Plugin](starting_a_plugin.html) and #code-snippets-index for some examples on how Bakkesmod SDK is used
