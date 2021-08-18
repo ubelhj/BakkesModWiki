@@ -19,11 +19,11 @@ Gets location
 
 ## Defined Members
 
-### [CarWrapper](/Wrappers_GameObject_CarWrapper) GetCar()
+### [CarWrapper](Wrappers_GameObject_CarWrapper) GetCar()
 Gets the car of a PRI if it exists.
-### void SetCar([CarWrapper](/Wrappers_GameObject_CarWrapper) newCar)
+### void SetCar([CarWrapper](Wrappers_GameObject_CarWrapper) newCar)
 Sets the PRI to a new car
 
 |Parameter|Type|Description|
 --|--|--
-newCar|[CarWrapper](/Wrappers_GameObject_CarWrapper)|The new car to set the PRI to
+newCar|[CarWrapper](Wrappers_GameObject_CarWrapper)|The new car to set the PRI to
