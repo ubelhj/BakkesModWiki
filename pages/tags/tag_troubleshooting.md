@@ -1,9 +1,8 @@
 ---
 title: "Troubleshooting pages"
-tagName: troubleshooting
+tagName: Troubleshooting
 search: exclude
 permalink: tag_troubleshooting.html
-sidebar: mydoc_sidebar
 folder: tags
 ---
 {% include taglogic.html %}

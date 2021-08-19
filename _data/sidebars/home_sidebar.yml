@@ -30,13 +30,28 @@ entries:
       url: /plugin_interface.html
       output: web, pdf
 
-  - title: Troubleshooting
+  - title: Useful Information
     output: web, pdf
 
     folderitems:
+    - title: Function Scanner
+      url: /function_scanner.html
+      output: web, pdf
 
-    - title: Troubleshooting
-      url: /mydoc_troubleshooting.html
+    - title: Code Snippets
+      url: /tag_code_snippet.html
+      output: web, pdf
+
+    - title: Crash Dumps
+      url: /crash_dumps.html
+      output: web, pdf
+
+    - title: Multiplayer Plugins
+      url: multiplayer_plugins.html
+      output: web, pdf
+    
+    - title: Troubleshooting Bakkesmod
+      url: troubleshooting_bakkesmod.html
       output: web, pdf
 
   - title: Tag archives

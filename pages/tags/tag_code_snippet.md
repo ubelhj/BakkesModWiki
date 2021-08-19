@@ -6,7 +6,7 @@ permalink: tag_code_snippet.html
 folder: tags
 ---
 
-Make a new one following  using the template [here](code_snippets_code_snippet_example.html)
+Make a new code snippet with a pull request using the template [here](code_snippets_code_snippet_example.html)
 
 {% include taglogic.html %}
 

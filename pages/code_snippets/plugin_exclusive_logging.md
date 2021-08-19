@@ -1,7 +1,7 @@
 ---
 title: Plugin Exclusive Logging
 tags: [code_snippet]
-permalink: code_snippets_plguin_exclusive_logging.html
+permalink: code_snippets_plugin_exclusive_logging.html
 folder: Code Snippet
 ---
 

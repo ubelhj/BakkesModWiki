@@ -4,6 +4,9 @@
 allowed-tags:
   - getting_started
   - code_snippet
+  - HookEvent
+  - Netcode
+  - Troubleshooting
   - Wrapper
   - GameObject
   - CarComponent

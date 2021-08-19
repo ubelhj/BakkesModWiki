@@ -31,8 +31,8 @@ First it includes your header so it can define the functions described above
 #include "pch.h"
 #include "CoolPlugin.h"
 ```
-Next it declares the plugin. The string in "" will be used in the plugin manager to describe the plugin, but it needs to be a short description. Keep it to 1 or two words. You can also define a plugin version, although the template handles that automatically. Finally is the plugin type described in the linked page. If you don't know what it is, just use `PLUGINTYPE_FREEPLAY`. 
-https://discord.com/channels/862068148328857700/862077132922028083/862388590091960350 TODO REPLACEME
+Next it declares the plugin. The string in "" will be used in the plugin manager to describe the plugin, but it needs to be a short description. Keep it to 1 or two words. You can also define a plugin version, although the template handles that automatically. Finally is the plugin type described [here](code_snippets_plugin_types.html). If you don't know what it is, it doesn't really matter, just use `PLUGINTYPE_FREEPLAY`. 
+
 ```cpp
 BAKKESMOD_PLUGIN(CoolPlugin, "Cool Plugin", plugin_version, PLUGINTYPE_FREEPLAY)
 ```
