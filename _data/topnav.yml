@@ -3,7 +3,7 @@
 topnav:
 - title: Topnav
   items:
-    - title: Download BakkesMod
+    - title: BakkesMod
       external_url: https://bakkesmod.com/
     - title: Find Plugins
       external_url: https://bakkesplugins.com/

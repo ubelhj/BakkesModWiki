@@ -58,6 +58,10 @@ entries:
       url: /other_languages.html
       output: web, pdf
 
+    - title: Useful Links
+      url: /useful_links.html
+      output: web, pdf
+
   - title: Tag archives
     output: web
     folderitems:
