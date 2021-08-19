@@ -62,6 +62,10 @@ entries:
       url: /useful_links.html
       output: web, pdf
 
+    - title: Commonly Hooked Functions
+      url: /commonly_hooked_functions.html
+      output: web, pdf
+
   - title: Tag archives
     output: web
     folderitems:
