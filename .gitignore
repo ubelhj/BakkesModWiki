@@ -6,3 +6,7 @@ _pdf
 .idea
 vendor/
 .bundle/
+_bakkesmod_sdk/
+node_modules/
+.jekyll-cache/
+_bakkesmod_sdk_parsed_output.txt
