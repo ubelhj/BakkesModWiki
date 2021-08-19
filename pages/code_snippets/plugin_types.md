@@ -1,6 +1,6 @@
 ---
 title: Plugin Types
-tags: [code_snippet]
+tags: [Code Snippet]
 permalink: code_snippets_plugin_types.html
 folder: Code Snippet
 ---

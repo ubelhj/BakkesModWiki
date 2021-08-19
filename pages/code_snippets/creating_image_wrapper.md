@@ -1,8 +1,8 @@
 ---
 title: Creating an ImageWrapper
-tags: [code_snippet, ImageWrapper, canvaswrapper]
+tags: [Code Snippet, ImageWrapper, canvaswrapper]
 permalink: code_snippets_creating_image_wrapper.html
-folder: code_snippet
+folder: Code Snippet
 ---
 
 ## Creating an ImageWrapper

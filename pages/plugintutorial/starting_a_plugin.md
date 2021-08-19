@@ -1,6 +1,6 @@
 ---
 title: Starting a plugin
-tags: [getting_started]
+tags: [Getting Started]
 permalink: starting_a_plugin.html
 folder: plugintutorial
 ---

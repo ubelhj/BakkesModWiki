@@ -1,6 +1,6 @@
 ---
 title: Known Playlist IDs
-tags: [code_snippet, GameSettingPlaylistWrapper]
+tags: [Code Snippet, GameSettingPlaylistWrapper]
 permalink: code_snippets_playlist_id.html
 folder: Code Snippet
 ---

@@ -1,6 +1,6 @@
 ---
 title: Setup your installs
-tags: [getting_started]
+tags: [Getting Started]
 permalink: getting_started.html
 folder: plugintutorial
 ---

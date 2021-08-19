@@ -1,8 +1,8 @@
 ---
 title: "Code Snippets"
-tagName: code_snippet
+tagName: Code Snippet
 search: exclude
-permalink: tag_code_snippet.html
+permalink: tag_Code Snippet.html
 folder: tags
 ---
 

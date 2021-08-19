@@ -1,6 +1,6 @@
 ---
 title: How CVars Work
-tags: [code_snippet, CVarWrapper]
+tags: [Code Snippet, CVarWrapper]
 permalink: code_snippets_how_cvars_work.html
 folder: Code Snippet
 ---

@@ -1,6 +1,6 @@
 ---
 title: Plugin Interface
-tags: [getting_started]
+tags: [Getting Started]
 permalink: plugin_interface.html
 folder: plugintutorial
 ---

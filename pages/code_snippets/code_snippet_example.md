@@ -1,6 +1,6 @@
 ---
 title: Code Snippet Example
-tags: [code_snippet]
+tags: [Code Snippet]
 permalink: code_snippets_code_snippet_example.html
 folder: Code Snippet
 ---

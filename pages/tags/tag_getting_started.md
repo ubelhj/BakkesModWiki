@@ -1,8 +1,8 @@
 ---
 title: "Getting started pages"
-tagName: getting_started
+tagName: Getting Started
 search: exclude
-permalink: tag_getting_started.html
+permalink: tag_Getting Started.html
 folder: tags
 ---
 {% include taglogic.html %}

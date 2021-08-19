@@ -1,6 +1,6 @@
 ---
 title: Using HttpWrapper
-tags: [code_snippet, HTTPWrapper]
+tags: [Code Snippet, HTTPWrapper]
 permalink: code_snippets_using_http_wrapper.html
 folder: Code Snippet
 ---

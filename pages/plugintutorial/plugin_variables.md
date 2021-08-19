@@ -1,6 +1,6 @@
 ---
 title: Plugin Variables
-tags: [getting_started]
+tags: [Getting Started]
 permalink: plugin_variables.html
 folder: plugintutorial
 ---

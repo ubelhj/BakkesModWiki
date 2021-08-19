@@ -1,6 +1,6 @@
 ---
 title: Using Function Hooks
-tags: [code_snippet, HookEvent]
+tags: [Code Snippet, HookEvent]
 permalink: code_snippets_using_function_hooks.html
 folder: Code Snippet
 ---

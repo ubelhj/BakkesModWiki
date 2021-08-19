@@ -39,7 +39,7 @@ entries:
       output: web, pdf
 
     - title: Code Snippets
-      url: /tag_code_snippet.html
+      url: /tag_Code Snippet.html
       output: web, pdf
 
     - title: Crash Dumps
@@ -47,11 +47,15 @@ entries:
       output: web, pdf
 
     - title: Multiplayer Plugins
-      url: multiplayer_plugins.html
+      url: /multiplayer_plugins.html
       output: web, pdf
     
     - title: Troubleshooting Bakkesmod
-      url: troubleshooting_bakkesmod.html
+      url: /troubleshooting_bakkesmod.html
+      output: web, pdf
+
+    - title: Other Programming Languages
+      url: /other_languages.html
       output: web, pdf
 
   - title: Tag archives
