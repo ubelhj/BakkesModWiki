@@ -4,6 +4,23 @@ const yaml = require('yaml');
 const glob = require('glob');
 const child_process = require('child_process');
 
+let timeStart = +(Date.now());
+
+let manualDescriptions = JSON.parse(fs.readFileSync("sdk-manual-descriptions.json", "utf8"));
+function drillDescriptions(defs, manualDescLevel) {
+    _.each(manualDescLevel, (v, k) => {
+        if (_.isUndefined(defs[k])) {
+            return
+        }
+        if (!_.isString(v)) {
+            return drillDescriptions(defs[k], v)
+        }
+        if (v.length > 0) {
+            defs[k]["Description"] = v;
+        }
+    });
+}
+
 // if (fs.existsSync("_bakkesmod_sdk")) {
 //     fs.rmdirSync("_bakkesmod_sdk", {
 //         recursive: true
@@ -100,4 +117,7 @@ _.each(files, file => {
         foundDefs.Classes[classMatches[0].groups.WrapperClass] = classDefinition;
     }
 });
+drillDescriptions(foundDefs, manualDescriptions);
 fs.writeFileSync("_bakkesmod_sdk_parsed_output.txt", JSON.stringify(foundDefs));
+
+console.log(`Generation successful! Took ${((+(Date.now())) - timeStart) / 1000}s`)
