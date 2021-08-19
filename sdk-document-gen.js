@@ -20,6 +20,13 @@ function drillDescriptions(defs, manualDescLevel) {
         }
     });
 }
+function getLinenumberHash(input, index, additionalLineOffset) {
+    additionalLineOffset = additionalLineOffset || 0;
+
+    let lookAt = input.substring(0, index);
+    lookAt = lookAt.replace(/\r?\n/g, "\n");
+    return `#L${lookAt.split("\n").length+additionalLineOffset}`
+}
 
 // if (fs.existsSync("_bakkesmod_sdk")) {
 //     fs.rmdirSync("_bakkesmod_sdk", {
@@ -46,6 +53,17 @@ _.each(files, file => {
     if (skipFiles.some(x => x === file)) {
         return;
     }
+    console.log(file);
+
+    let sdkGithubLink = file.substring(file.indexOf("/")+1);
+    let sdkLocation = sdkGithubLink.split("/").slice(2) //For tags
+    sdkLocation.pop();
+    _.each(sdkLocation, (name, i) => {
+        sdkLocation[i] = _.upperFirst(name);
+    })
+    sdkGithubLink = "https://github.com/bakkesmodorg/BakkesModSDK/blob/master/" + sdkGithubLink;
+    console.log(sdkLocation);
+
 
     const tokenRegexes = {
         defineConstants: {Rgx: /#define\s+(?<ConstName>\w+?)\s+?(?<ConstValue>[^\s].+?)\s*$/gm},
@@ -60,8 +78,6 @@ _.each(files, file => {
     let r = fs.readFileSync(file, "utf8");
     r = r.replace(tokenRegexes.comments.Rgx, ""); //Comments don't matter for our generation purposes
 
-    console.log(file);
-
     //-- Enums
     let enumMatches = [...r.matchAll(tokenRegexes.enumOutter.Rgx)];
     if (enumMatches.length > 0) {
@@ -71,7 +87,10 @@ _.each(files, file => {
             _.each(enumValues, enumValue => {
                 enumValuesMap[enumValue.groups.EnumKey] = _.isUndefined(enumValue.groups.EnumValue) ? "" : enumValue.groups.EnumValue;
             });
-            foundDefs.Enums[em.groups.EnumName] = enumValuesMap;
+            foundDefs.Enums[em.groups.EnumName] = {
+                GitHubPath: sdkGithubLink + getLinenumberHash(r, em.index),
+                Values: enumValuesMap
+            };
         });
     }
 
@@ -79,7 +98,10 @@ _.each(files, file => {
     let constantMatches = [...r.matchAll(tokenRegexes.defineConstants.Rgx)]
     if (constantMatches.length > 0) {
         _.each(constantMatches, cm => {
-            foundDefs.Constants[cm.groups.ConstName] = cm.groups.ConstValue;
+            foundDefs.Constants[cm.groups.ConstName] = {
+                GitHubPath: sdkGithubLink + getLinenumberHash(r, cm.index),
+                Value: cm.groups.ConstValue
+            };
         });
     }
 
@@ -91,6 +113,7 @@ _.each(files, file => {
         }
 
         let classDefinition = {
+            GitHubPath: sdkGithubLink + getLinenumberHash(r, classMatches[0].index),
             SuperClass: classMatches[0].groups.WrapperSuperClass,
             Fields: {}
         }
@@ -98,6 +121,7 @@ _.each(files, file => {
         let classFieldDefinitions = [...r.matchAll(tokenRegexes.fieldDefinition.Rgx)]
         _.each(classFieldDefinitions, cfd => {
             let fieldDefinition = {
+                GitHubPath: sdkGithubLink + getLinenumberHash(r, cfd.index, 1),
                 Type: cfd.groups.FieldType,
                 Parameters: []
             };
