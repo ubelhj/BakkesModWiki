@@ -20,6 +20,28 @@ function drillDescriptions(defs, manualDescLevel) {
         }
     });
 }
+function generateSidebarYml(buildStr, items, level) {
+    level = level || 1;
+
+    _.each(items, (item) => {
+        let currentStr = `${_.repeat("  ", level)}- title: ${item.title}\n`;
+        currentStr += `${_.repeat("  ", level+1)}output: web\n`;
+        if (!_.isUndefined(item["url"])) {
+            currentStr += `${_.repeat("  ", level+1)}url: ${item.url}\n`;
+        }
+        if (level === 1) {
+            currentStr += `${_.repeat("  ", level+1)}folderitems:\n`;
+            currentStr = generateSidebarYml(currentStr, item.subitems, level+1);
+        } else {
+            if (!_.isUndefined(item["subitems"])) {
+                currentStr += `${_.repeat("  ", level+1)}${level % 2 === 0 ? "subfolders" : "subfolderitems"}:\n`;
+                currentStr = generateSidebarYml(currentStr, item.subitems, level+1);
+            }
+        }
+        buildStr += currentStr;
+    })
+    return buildStr;
+}
 function getLinenumberHash(input, index, additionalLineOffset) {
     additionalLineOffset = additionalLineOffset || 0;
 
@@ -43,6 +65,12 @@ let foundDefs = {
     Classes: {},
     Types: {},
 };
+let docsSidebar = `entries:
+- title: Docs Sidebar
+  product: BakkesMod API Docs
+  folders:
+`;
+let docsSidebarArray = [];
 
 let skipFiles = [
     "_bakkesmod_sdk/include/bakkesmod/wrappers/arraywrapper.h"
@@ -62,8 +90,6 @@ _.each(files, file => {
         sdkLocation[i] = _.upperFirst(name);
     })
     sdkGithubLink = "https://github.com/bakkesmodorg/BakkesModSDK/blob/master/" + sdkGithubLink;
-    console.log(sdkLocation);
-
 
     const tokenRegexes = {
         defineConstants: {Rgx: /#define\s+(?<ConstName>\w+?)\s+?(?<ConstValue>[^\s].+?)\s*$/gm},
@@ -91,6 +117,12 @@ _.each(files, file => {
                 GitHubPath: sdkGithubLink + getLinenumberHash(r, em.index),
                 Values: enumValuesMap
             };
+
+            docsSidebarArray.push({
+                parents: ["Enums"],
+                title: em.groups.EnumName,
+                url: `/${sdkLocation.join('_')}_${em.groups.EnumName}.html`
+            });
         });
     }
 
@@ -102,6 +134,11 @@ _.each(files, file => {
                 GitHubPath: sdkGithubLink + getLinenumberHash(r, cm.index),
                 Value: cm.groups.ConstValue
             };
+            docsSidebarArray.push({
+                parents: ["Constants"],
+                title: cm.groups.ConstName,
+                url: `/${sdkLocation.join('_')}_${cm.groups.ConstName}.html`
+            });
         });
     }
 
@@ -139,7 +176,40 @@ _.each(files, file => {
         });
 
         foundDefs.Classes[classMatches[0].groups.WrapperClass] = classDefinition;
+
+        // drillSdkSidebarLocations(docsSidebarObj, sdkLocation, 0, );
+        docsSidebarArray.push({
+            parents: ["Classes", ...sdkLocation],
+            title: classMatches[0].groups.WrapperClass,
+            url: `/${sdkLocation.join('_')}_${classMatches[0].groups.WrapperClass}.html`
+        });
     }
+
+    //-- Sidebar
+    let builtSidebar = {subitems: {}};
+    _.each(docsSidebarArray, arr => {
+
+        let lastObj = builtSidebar;
+        _.each(arr.parents, (parent, i) => {
+            if (_.isUndefined(lastObj.subitems[parent])) {
+                lastObj.subitems[parent] = {
+                    title: parent,
+                    subitems: {}
+                };
+            }
+            lastObj = lastObj.subitems[parent];
+        });
+        lastObj.subitems[arr.title] = {
+            title: arr.title,
+            url: arr.url,
+        }
+    });
+    if (file === "_bakkesmod_sdk/include/bakkesmod/wrappers/UniqueIDWrapper.h") {
+        sidebar = generateSidebarYml(docsSidebar, builtSidebar.subitems);
+        fs.writeFileSync("_data/sidebars/docs_sidebar.yml", sidebar);
+    }
+    // console.log(JSON.stringify(builtSidebar));
+
 });
 drillDescriptions(foundDefs, manualDescriptions);
 fs.writeFileSync("_bakkesmod_sdk_parsed_output.txt", JSON.stringify(foundDefs));
